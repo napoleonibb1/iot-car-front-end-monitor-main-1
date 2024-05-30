@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Carro Electrónico</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+zEK5twFyZjL2Q4fuhzwn8o9ifnV5S9tkQLtP1C" crossorigin="anonymous">
+    <style>
+        /* Estilos adicionales */
+        body {
+            background-color: #282c34;
+            /* Cambié el color de fondo a un tono de gris oscuro */
+            color: #fff;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        .btn {
+            border-radius: 50px;
+            margin: 10px 0;
+            width: 220px;
+            /* Aumenté un poco el ancho de los botones */
+            height: 80px;
+            /* Aumenté la altura de los botones */
+            font-size: 1.8rem;
+            /* Aumenté el tamaño de la fuente */
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            /* Color azul */
+            border-color: #007bff;
+            /* Borde azul */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            /* Color azul oscuro al pasar el ratón */
+            border-color: #0056b3;
+            /* Borde azul oscuro al pasar el ratón */
+        }
+
+        .btn-success {
+            background-color: #ffc107;
+            /* Color amarillo */
+            border-color: #ffc107;
+            /* Borde amarillo */
+        }
+
+        .btn-success:hover {
+            background-color: #d39e00;
+            /* Color amarillo oscuro al pasar el ratón */
+            border-color: #d39e00;
+            /* Borde amarillo oscuro al pasar el ratón */
+        }
+
+        .btn-warning {
+            background-color: #dc3545;
+            /* Color rojo */
+            border-color: #dc3545;
+            /* Borde rojo */
+        }
+
+        .btn-warning:hover {
+            background-color: #bd2130;
+            /* Color rojo oscuro al pasar el ratón */
+            border-color: #bd2130;
+            /* Borde rojo oscuro al pasar el ratón */
+        }
+
+        .btn-danger {
+            background-color: #28a745;
+            /* Color verde */
+            border-color: #28a745;
+            /* Borde verde */
+        }
+
+        .btn-danger:hover {
+            background-color: #218838;
+            /* Color verde oscuro al pasar el ratón */
+            border-color: #218838;
+            /* Borde verde oscuro al pasar el ratón */
+        }
+
+        .navbar {
+            background-color: #282c34 !important;
+        }
+
+        .navbar-brand img {
+            filter: invert(1);
+        }
+
+        .nav-link {
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            padding: 20px 0;
+            background-color: #282c34;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            color: #fff;
+        }
+
+        /* Estilos para la disposición de los botones */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .btn-group-vertical {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .btn-center {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="ruta/a/tu/imagen.png" alt="Logo" height="30">
+            </a>
+            <!-- Botón para móviles -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Enlaces del NavBar -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Monitoreo de Estatus</h1>
+                
+                <div class="col-12 col-md-6 mt-5">
+                    <span id="respuesta">Última Órden: </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container" fixed-botom>
+            <p>Derechos Reservados &copy; 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Bootstrap JS y Dependencias -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-NF8mxTjCTWoA65oG6BWR467xmATWxvyjFfjAkzs/HP6pvtOJh3vcVnvkF5alTO/7"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-58LIRIC8jGPKpYffO6y0Ngb4tlw1ZqK3Ir9ZbCeIY+RXsFFsxH9v7s4Wd6pG9vFy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
